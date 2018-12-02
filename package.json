@@ -1,0 +1,23 @@
+{
+  "name": "windit-api",
+  "version": "0.0.1",
+  "description": "Api for Windit application",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon -w src --exec \"babel-node src/api\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jan Nyholm & Eva Lehtinen",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.1.6",
+    "@babel/node": "^7.0.0",
+    "@babel/preset-env": "^7.1.6",
+    "babel-preset-env": "^1.7.0",
+    "nodemon": "^1.18.7"
+  },
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
