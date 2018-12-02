@@ -1,8 +1,9 @@
 import express from 'express'
+import testi from './testi'
 
 const app = express()
 const port = 3000
 
-app.get('/test', (req, res) => res.send('Hello World (benis)!'))
+app.use('/test', testi())
 
-app.listen(port, () => console.log('Listening on ${port}!'))
+app.listen(port, () => console.log(`Listening on ${port}!`))
