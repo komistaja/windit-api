@@ -10,3 +10,4 @@ To run
 ```
 npm start
 ```
+The server will be online on http://localhost:3000
