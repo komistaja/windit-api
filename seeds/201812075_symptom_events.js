@@ -1,7 +1,6 @@
 require('babel-polyfill')
 
-const datefns = require('date-fns')
-const addHours = datefns.addHours
+const addHours = require('date-fns').addHours
 const rosie = require('rosie')
 const factory = rosie.Factory
 const faker = require('faker')
@@ -40,7 +39,5 @@ exports.seed = async function (knex) {
     }
   })
 
-  await knex.batchInsert('symptom_event', symptomEvents).then(result => {
-    return result
-  })
+  await knex.batchInsert('symptom_event', symptomEvents).then(result => console.log(result.length * result[0].rowCount, 'symptom_event rows inserted'))
 }

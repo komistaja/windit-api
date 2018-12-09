@@ -19,7 +19,9 @@ const names = [
   'Salaatti',
   'Parsakaali',
   'Herkkusieni',
-  'Paprika'
+  'Paprika',
+  'Olut',
+  'Kalja'
 ]
 
 let ingredients = []
@@ -29,7 +31,7 @@ names.forEach(ingredient => {
     name: ingredient
   }))
 })
-console.log('ingredienst: ', ingredients)
+console.log('ingredients: ', ingredients)
 
 exports.seed = async function (knex) {
   await knex('ingredient').del()

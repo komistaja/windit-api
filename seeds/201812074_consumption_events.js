@@ -34,5 +34,5 @@ exports.seed = async function (knex) {
     }
   })
 
-  await knex.batchInsert('consumption_event', events)
+  await knex.batchInsert('consumption_event', events).then(result => console.log(result.length * result[0].rowCount, 'consumption_event rows inserted'))
 }
