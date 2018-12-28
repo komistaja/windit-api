@@ -4,6 +4,7 @@ Api for Windit application front-end
 Edit the .env file to correspond to your own setup, mainly docker hostname for developer use.
 Use localhost with docker for windows or 192.168.99.100 for docker toolbox
 
+#Development database
 To run database in docker
 ```
 docker-compose up
@@ -21,8 +22,12 @@ To rollback migrations run
 ```
 knex migrate:rollback
 ```
+To seed database
+```
+knex seed:run
+```
 
-Setup
+#Setup
 ```
 npm install
 ```
