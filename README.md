@@ -4,30 +4,37 @@ Api for Windit application front-end
 Edit the .env file to correspond to your own setup, mainly docker hostname for developer use.
 Use localhost with docker for windows or 192.168.99.100 for docker toolbox
 
-#Development database
-To run database in docker
+#Development database setup
+The development database in run in a docker container. Install docker following dockers online instructions for your operating system.
+
+To run database in docker. Use sudo in linux if docker user is not configured to have sudo rights.
 ```
 docker-compose up
 ```
-
 To run migrations first install knex
 ```
-npm install knex -g
+npm install knex
 ```
 Then run latest migrations
 ```
 knex migrate:latest
 ```
+Then seed database with test data
+```
+knex seed:run
+```
+#Managing development database
 To rollback migrations run
 ```
 knex migrate:rollback
 ```
-To seed database
+
+To create a new migration use the following command. More info on the subject: https://knexjs.org/
 ```
-knex seed:run
+knex migrate:make migration_name
 ```
 
-#Setup
+#Application setup
 ```
 npm install
 ```
