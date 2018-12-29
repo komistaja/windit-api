@@ -10,7 +10,7 @@ const db = knex(knexConfig[env])
 
 export default () => {
   router.get('/', async (req, res) => {
-    const data = await db.select('*').from('consumption_event').where('user_id', req.user[0].id)
+    const data = await db.select('*').from('consumption_event').where('user_id', req.userId)
     res.json(data)
   })
   return router

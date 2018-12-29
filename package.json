@@ -35,6 +35,8 @@
     "express-winston": "^3.0.1",
     "knex": "^0.15.2",
     "pg": "^7.7.1",
+    "swagger-jsdoc": "^3.2.6",
+    "swagger-ui-express": "^4.0.2",
     "winston": "^3.1.0"
   }
 }

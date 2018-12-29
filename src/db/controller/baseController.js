@@ -10,11 +10,11 @@ export default class BaseController {
     const router = Router()
 
     router.param('id', async (req, res, next, id) => {
-      const event = await this.crudService.read(id)
-      if (!event[0]) {
-        res.json('Not found')
+      const item = await this.crudService.read(id)
+      if (!item[0]) {
+        return res.json('Not found')
       }
-      req.event = event[0]
+      req.item = item[0]
       next()
     })
 
@@ -24,7 +24,7 @@ export default class BaseController {
     })
 
     router.get('/:id', async (req, res) => {
-      const data = await this.crudService.read(req.event.id)
+      const data = await this.crudService.read(req.item.id)
       res.json(data)
     })
 
@@ -39,7 +39,7 @@ export default class BaseController {
     })
 
     router.delete('/:id', async (req, res) => {
-      const data = await this.crudService.delete(req.event.id)
+      const data = await this.crudService.delete(req.item.id)
       res.json(data)
     })
 

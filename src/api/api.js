@@ -1,6 +1,7 @@
 import bodyParser from 'body-parser'
 import { httpLogger } from './logger'
 
+import apidocs from './apidocs'
 import Router from 'express'
 import user from './user'
 import ingredients from './ingredients'
@@ -18,13 +19,14 @@ export default () => {
   router.use(httpLogger)
 
   router.get('/', (req, res) => {
-    res.status(404).json('berus')
+    res.status(200).json('berus')
   })
 
+  router.use('/apidocs', apidocs())
   router.use('/user', user())
   router.use('/consumption', consumption())
   router.use('/symptom', symptom())
-  router.use('/ingredients', ingredients())
+  router.use('/ingredient', ingredients())
   router.use('/symptoms', symptoms())
 
   return router
