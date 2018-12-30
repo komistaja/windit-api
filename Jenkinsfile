@@ -5,6 +5,10 @@ pipeline {
     }
 
     stages {
+        stage('Prepare') {
+            echo 'Preparing..'
+            sh 'docker stop $(docker ps -q)'
+        }
         stage('Build') {
             steps {
                 echo 'Building..'
@@ -19,7 +23,6 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
-                sh 'docker stop $(docker ps -q)'
                 sh 'docker-compose start postgres'
                 sh 'docker-compose start windit'
             }
