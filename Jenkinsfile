@@ -19,8 +19,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
-                sh 'docker stop $(docker ps -aq)'
-                sh 'docker rmi $(docker ps -aq)'
+                sh 'docker stop $(docker ps -q)'
                 sh 'docker-compose start postgres'
                 sh 'docker-compose start windit'
             }
