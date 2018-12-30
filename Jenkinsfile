@@ -19,7 +19,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
-                sh 'docker rm -f windit || true'
+                sh 'docker stop $(docker ps -aq)'
+                sh 'docker rmi $(docker ps -aq)'
                 sh 'docker-compose start postgres'
                 sh 'docker-compose start windit'
             }
