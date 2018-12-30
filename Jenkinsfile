@@ -26,7 +26,9 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
-                def seedcommand = 'npm run seed'
+                script {
+                    def seedcommand = 'npm run seed'
+                }
                 sh 'docker-compose start postgres'
                 sh 'docker-compose start windit'
                 sh('seed_database.sh')
