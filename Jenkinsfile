@@ -6,8 +6,10 @@ pipeline {
 
     stages {
         stage('Prepare') {
-            echo 'Preparing..'
-            sh 'docker stop $(docker ps -q)'
+            steps {
+                echo 'Preparing..'
+                sh 'docker stop $(docker ps -)'
+            }
         }
         stage('Build') {
             steps {
