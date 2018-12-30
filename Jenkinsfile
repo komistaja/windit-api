@@ -28,7 +28,7 @@ pipeline {
                 echo 'Deploying...'
                 sh 'docker-compose start postgres'
                 sh 'docker-compose start windit'
-                sh 'docker-compose exec -it windit /bin/sh -c \'npm run seed\''
+                sh 'docker-compose exec -it windit /bin/sh -c "npm run seed"'
             }
         }
     }
