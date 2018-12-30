@@ -8,17 +8,17 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh 'node --version'
+                sh 'docker-compose up --build'
             }
         }
         stage('Test') {
             steps {
-                sh 'node --version'
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+                sh 'docker rm -f windit || true'
             }
         }
     }
