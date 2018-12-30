@@ -9,6 +9,7 @@ pipeline {
             steps {
                 echo 'Preparing..'
                 sh 'docker stop $(docker ps -aq)'
+                sh 'docker rm $(docker ps -aq)'
             }
         }
         stage('Build') {
@@ -27,6 +28,7 @@ pipeline {
                 echo 'Deploying...'
                 sh 'docker-compose start postgres'
                 sh 'docker-compose start windit'
+                sh 'docker-compose exec windit /bin/sh -c \'npm run seed\''
             }
         }
     }
