@@ -1,19 +1,22 @@
 version: "3.2"
 services:
   windit:
+    environment:
+      DB_HOST: postgres
+      NODE_ENV: docker
     build:
       context: ./
       args:
         NODE_ENV: development
     image: node:10.15.0-alpine
     command: /bin/sh -c "npm run serve"
+    depends_on:
+        - postgres
     volumes:
-      - .:/usr/app
-      - /usr/app/node_modules
+        - .:/usr/app
+        - /usr/app/node_modules
     ports:
-      - "3000:3000"
-    environment:
-      DB_HOST: postgres
+        - "3000:3000"
   postgres:
     image: postgres:11-alpine
     volumes:

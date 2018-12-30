@@ -8,7 +8,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh 'docker-compose up --build'
+                sh 'docker-compose up --build --no-start'
             }
         }
         stage('Test') {
@@ -20,6 +20,8 @@ pipeline {
             steps {
                 echo 'Deploying...'
                 sh 'docker rm -f windit || true'
+                sh 'docker-compose start postgres'
+                sh 'docker-compose start windit'
             }
         }
     }
