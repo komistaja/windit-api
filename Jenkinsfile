@@ -13,6 +13,7 @@ pipeline {
         }
         stage('Test') {
             steps {
+                echo 'No tests yet'
             }
         }
         stage('Deploy') {
