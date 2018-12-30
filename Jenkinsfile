@@ -26,9 +26,10 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
+                def seedcommand = 'npm run seed'
                 sh 'docker-compose start postgres'
                 sh 'docker-compose start windit'
-                sh 'export COMPOSE_INTERACTIVE_NO_CLI=1 && docker-compose exec windit /bin/sh -c \'npm run seed\''
+                sh "export COMPOSE_INTERACTIVE_NO_CLI=1 && docker-compose exec windit /bin/sh -c ${seedcommand}"
             }
         }
     }
