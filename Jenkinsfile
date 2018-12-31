@@ -15,7 +15,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh 'docker-compose up --build --no-start'
+                sh 'COMPOSE_HTTP_TIMEOUT=200 docker-compose up --build --no-start'
             }
         }
         stage('Test') {

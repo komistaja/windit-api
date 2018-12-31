@@ -3,11 +3,10 @@ services:
   windit:
     environment:
       DB_HOST: postgres
-      NODE_ENV: docker
     build:
       context: ./
       args:
-        NODE_ENV: development
+        NODE_ENV: docker
     image: node:10.15.0-alpine
     command: /bin/sh -c "npm run serve"
     depends_on:
