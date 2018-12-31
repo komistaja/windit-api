@@ -31,7 +31,7 @@ pipeline {
                 }
                 sh 'docker-compose start postgres'
                 sh 'docker-compose start windit'
-                sh('seed_database.sh')
+                sh('./seed_database.sh')
                 sh "export COMPOSE_INTERACTIVE_NO_CLI=1 && docker-compose exec windit /bin/sh -c ${seedcommand}"
             }
         }
