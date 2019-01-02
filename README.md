@@ -23,7 +23,7 @@ Then seed database with test data
 ```
 knex seed:run
 ```
-#Managing development database
+# Managing development database
 To rollback migrations run
 ```
 knex migrate:rollback
