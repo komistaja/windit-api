@@ -7,7 +7,7 @@ const faker = require('faker')
 
 faker.seed(715517)
 
-const rowAmountPerUser = 6000
+const rowAmountPerUser = 1200
 
 factory.define('symptom_event')
   .attr('id')
