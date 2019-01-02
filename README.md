@@ -34,7 +34,7 @@ To create a new migration use the following command. More info on the subject: h
 knex migrate:make migration_name
 ```
 
-#Application setup
+# Application setup
 ```
 npm install
 ```
