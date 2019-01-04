@@ -7,7 +7,7 @@ services:
     build:
       context: ./
       args:
-        NODE_ENV: development
+        NODE_ENV: production
     image: node:10.15.0-alpine
     command: /bin/sh -c "npm run serve"
     depends_on:
