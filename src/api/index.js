@@ -1,11 +1,11 @@
-import 'babel-polyfill'
-import express from 'express'
-import api from './api'
+if (!global._babelPolyfill) {
+  require('babel-polyfill')
+}
 
-require('dotenv').config()
-
-const app = express()
 const port = process.env.PORT || 3000
+const app = require('./app')
 
-app.listen(port, () => console.log(`Listening on ${port}!`))
-app.use('/api', api())
+let server = app.listen(port, () => {
+  console.log(`Started on port ${server.address().port}`)
+})
+
