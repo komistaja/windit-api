@@ -1,4 +1,4 @@
-require('babel-polyfill')
+require('@babel/polyfill')
 
 const addHours = require('date-fns').addHours
 const rosie = require('rosie')
