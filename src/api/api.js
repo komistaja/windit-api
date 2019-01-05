@@ -5,9 +5,9 @@ import apidocs from './apidocs'
 import Router from 'express'
 import user from './user'
 import ingredients from './ingredients'
-import consumption from './consumption'
+import consumptionevent from './consumptionevent'
 import symptoms from './symptoms'
-import symptom from './symptom'
+import symptomevent from './symptomevent'
 
 require('dotenv').config()
 
@@ -24,8 +24,8 @@ export default () => {
 
   router.use('/apidocs', apidocs())
   router.use('/user', user())
-  router.use('/consumption', consumption())
-  router.use('/symptom', symptom())
+  router.use('/consumptionevent', consumptionevent())
+  router.use('/symptomevent', symptomevent())
   router.use('/ingredient', ingredients())
   router.use('/symptoms', symptoms())
 

@@ -1,8 +1,8 @@
 import BaseController from '../baseController'
+import IngredientService from '../../service/ingredientService'
 
 export default class IngredientController extends BaseController {
   constructor () {
-    const table = 'ingredient'
-    super(table)
+    super(new IngredientService())
   }
 }

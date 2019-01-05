@@ -1,8 +1,9 @@
 import { Router } from 'express'
-import IngredientController from '../../db/controller/ingredientController'
-const router = Router()
+import IngredientController from '../../controller/ingredientController'
 
 export default () => {
+  const router = Router()
+  router.param('id', new IngredientController().params)
   /**
    * @swagger
    * /ingredient:
@@ -33,6 +34,7 @@ export default () => {
    *       404:
    *         description: Not found
    */
+  router.get('/', new IngredientController().getAll)
 
   /**
    * @swagger
@@ -69,6 +71,7 @@ export default () => {
    *       404:
    *         description: Not found
    */
+  router.get('/:id', new IngredientController().getOne)
 
   /**
    * @swagger
@@ -117,6 +120,7 @@ export default () => {
    *       404:
    *         description: Not found
    */
+  router.post('/', new IngredientController().create)
 
   /**
    * @swagger
@@ -153,6 +157,7 @@ export default () => {
    *       404:
    *         description: Not found
    */
+  router.put('/', new IngredientController().update)
 
   /**
    * @swagger
@@ -180,6 +185,6 @@ export default () => {
    *       404:
    *         description: Not found
    */
-  router.use('/', new IngredientController().route())
+  router.delete('/', new IngredientController().delete)
   return router
 }

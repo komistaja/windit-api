@@ -1,15 +1,16 @@
 import { Router } from 'express'
-import ConsumptionEventController from '../../db/controller/consumptionEventController'
+import ConsumptionEventController from '../../controller/consumptionEventController'
 const router = Router()
 
 export default () => {
+  router.param('id', new ConsumptionEventController().params)
   /**
    * @swagger
-   * /consumption:
+   * /consumptionevent:
    *   get:
    *     description: List of consumption events
    *     tags:
-   *       - consumption
+   *       - consumptionevent
    *     produces:
    *       - application/json
    *     responses:
@@ -39,14 +40,15 @@ export default () => {
    *       404:
    *         description: Not found
    */
+  router.get('/', new ConsumptionEventController().getAll)
 
   /**
    * @swagger
-   * /consumption/{consumptionId}:
+   * /consumptionevent/{consumptioneventId}:
    *   get:
    *     description: A consumption event
    *     tags:
-   *       - consumption
+   *       - consumptionevent
    *     produces:
    *       - application/json
    *     parameters:
@@ -55,7 +57,7 @@ export default () => {
    *         schema:
    *           type: integer
    *         required: true
-   *         description: consumption Id
+   *         description: consumptionevent Id
    *     responses:
    *       200:
    *         content:
@@ -81,14 +83,15 @@ export default () => {
    *       404:
    *         description: Not found
    */
+  router.get('/:id', new ConsumptionEventController().getOne)
 
   /**
    * @swagger
-   * /consumption:
+   * /consumptionevent:
    *   post:
-   *     description: Create consumption
+   *     description: Create consumptionevent
    *     tags:
-   *       - consumption
+   *       - consumptionevent
    *     produces:
    *       - application/json
    *     requestBody:
@@ -135,14 +138,15 @@ export default () => {
    *       404:
    *         description: Not found
    */
+  router.post('/', new ConsumptionEventController().create)
 
   /**
    * @swagger
-   * /consumption:
+   * /consumptionevent:
    *   put:
    *     description: Update consumption event
    *     tags:
-   *       - consumption
+   *       - consumptionevent
    *     produces:
    *       - application/json
    *     requestBody:
@@ -192,14 +196,16 @@ export default () => {
    *       404:
    *         description: Not found
    */
+  router.put('/', new ConsumptionEventController().update)
+
 
   /**
    * @swagger
-   * /consumption/{consumptionId}:
+   * /consumptionevent/{consumptioneventId}:
    *   delete:
    *     description: Delete a consumption event
    *     tags:
-   *       - consumption
+   *       - consumptionevent
    *     produces:
    *       - application/json
    *     parameters:
@@ -219,6 +225,6 @@ export default () => {
    *       404:
    *         description: Not found
    */
-  router.use('/', new ConsumptionEventController().route())
+  router.delete('/', new ConsumptionEventController().delete)
   return router
 }

@@ -1,8 +1,8 @@
 import BaseController from '../baseController'
+import ConsumptionEventService from '../../service/consumptionEventService'
 
 export default class ConsumptionEventController extends BaseController {
   constructor () {
-    const table = 'consumption_event'
-    super(table)
+    super(new ConsumptionEventService('consumption_event'))
   }
 }

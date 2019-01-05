@@ -1,15 +1,9 @@
-import consumption from './consumption'
-import symptom from './symptom'
 import { Router } from 'express'
-import UserController from '../../db/controller/userController'
-const router = Router()
-require('dotenv').config()
+import UserController from '../../controller/userController'
 
 export default () => {
-  router.param('id', async (req, res, next, id) => {
-    req.userId = id
-    next()
-  })
+  const router = Router()
+  router.param('id', new UserController().params)
   /**
    * @swagger
    * /user:
@@ -48,6 +42,7 @@ export default () => {
    *       404:
    *         description: Not found
    */
+  router.get('/', new UserController().getAll)
 
   /**
    * @swagger
@@ -92,6 +87,7 @@ export default () => {
    *       404:
    *         description: Not found
    */
+  router.get('/:id', new UserController().getOne)
 
   /**
    * @swagger
@@ -142,6 +138,7 @@ export default () => {
    *       404:
    *         description: Not found
    */
+  router.post('/', new UserController().create)
 
   /**
    * @swagger
@@ -195,6 +192,7 @@ export default () => {
    *       404:
    *         description: Not found
    */
+  router.put('/', new UserController().update)
 
   /**
    * @swagger
@@ -223,7 +221,7 @@ export default () => {
    *         description: Not found
    */
 
-  router.use('/', new UserController().route())
+  router.delete('/', new UserController().delete)
 
   /**
    * @swagger
@@ -268,7 +266,7 @@ export default () => {
    *       404:
    *         description: Not found
    */
-  router.use('/:id/consumptions', consumption())
+  router.get('/:id/consumptions', new UserController().getUserConsumption)
 
   /**
    * @swagger
@@ -311,6 +309,6 @@ export default () => {
    *       404:
    *         description: Not found
    */
-  router.use('/:id/symptoms', symptom())
+  router.use('/:id/symptoms', new UserController().getUserSymptoms)
   return router
 }
