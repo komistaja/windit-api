@@ -21,7 +21,19 @@ const names = [
   'Herkkusieni',
   'Paprika',
   'Olut',
-  'Kalja'
+  'Kalja',
+  'Ruisleipä',
+  'Kaurapuuro',
+  'Sipuli',
+  'Valkosipuli',
+  'Kaali',
+  'Koiranruoka',
+  'Ginsengjuuri',
+  'Kana',
+  'Kalkkuna',
+  'Meetvursti',
+  'Vegaanijuusto',
+  'Koirankarva'
 ]
 
 let ingredients = []

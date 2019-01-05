@@ -6,7 +6,7 @@ const faker = require('faker')
 
 faker.seed(6315)
 
-const rowAmountPerUser = 30000
+const rowAmountPerUser = 6000
 
 factory.define('event')
   .attr('id')
